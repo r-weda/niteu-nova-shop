@@ -18,7 +18,7 @@ const Index = () => {
   const [cart, setCart] = useState<CartItem[]>([]);
   const [filteredProducts, setFilteredProducts] = useState(products);
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
-  const [priceRange, setPriceRange] = useState([0, 1000]);
+  const [priceRange, setPriceRange] = useState([0, 200000]);
   const [searchQuery, setSearchQuery] = useState("");
   const [showFilters, setShowFilters] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
@@ -141,12 +141,12 @@ const Index = () => {
                 {/* Price Range */}
                 <div>
                   <h3 className="font-semibold mb-3 text-sm text-muted-foreground">
-                    Price Range: ${priceRange[0]} - ${priceRange[1]}
+                    Price Range: KSh {priceRange[0].toLocaleString()} - KSh {priceRange[1].toLocaleString()}
                   </h3>
                   <Slider
                     min={0}
-                    max={1000}
-                    step={10}
+                    max={200000}
+                    step={1000}
                     value={priceRange}
                     onValueChange={setPriceRange}
                     className="w-full max-w-md"
@@ -193,7 +193,7 @@ const Index = () => {
                 variant="outline"
                 onClick={() => {
                   setSelectedCategory("All");
-                  setPriceRange([0, 1000]);
+                  setPriceRange([0, 200000]);
                   setSearchQuery("");
                 }}
                 className="mt-4"
@@ -231,28 +231,28 @@ const Index = () => {
             <div>
               <h4 className="font-semibold mb-4">Shop</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li className="hover:text-primary cursor-pointer transition-smooth">All Products</li>
-                <li className="hover:text-primary cursor-pointer transition-smooth">Best Sellers</li>
-                <li className="hover:text-primary cursor-pointer transition-smooth">New Arrivals</li>
-                <li className="hover:text-primary cursor-pointer transition-smooth">Sale</li>
+                <li><Link to="/products" className="hover:text-primary transition-smooth">All Products</Link></li>
+                <li><Link to="/products?filter=best-sellers" className="hover:text-primary transition-smooth">Best Sellers</Link></li>
+                <li><Link to="/products?filter=new-arrivals" className="hover:text-primary transition-smooth">New Arrivals</Link></li>
+                <li><Link to="/products?filter=sale" className="hover:text-primary transition-smooth">Sale</Link></li>
               </ul>
             </div>
             <div>
               <h4 className="font-semibold mb-4">Support</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li className="hover:text-primary cursor-pointer transition-smooth">Contact Us</li>
-                <li className="hover:text-primary cursor-pointer transition-smooth">FAQ</li>
-                <li className="hover:text-primary cursor-pointer transition-smooth">Shipping Info</li>
-                <li className="hover:text-primary cursor-pointer transition-smooth">Returns</li>
+                <li><Link to="/contact" className="hover:text-primary transition-smooth">Contact Us</Link></li>
+                <li><Link to="/faq" className="hover:text-primary transition-smooth">FAQ</Link></li>
+                <li><Link to="/shipping" className="hover:text-primary transition-smooth">Shipping Info</Link></li>
+                <li><Link to="/returns" className="hover:text-primary transition-smooth">Returns</Link></li>
               </ul>
             </div>
             <div>
               <h4 className="font-semibold mb-4">Company</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li className="hover:text-primary cursor-pointer transition-smooth">About Us</li>
-                <li className="hover:text-primary cursor-pointer transition-smooth">Careers</li>
-                <li className="hover:text-primary cursor-pointer transition-smooth">Privacy Policy</li>
-                <li className="hover:text-primary cursor-pointer transition-smooth">Terms of Service</li>
+                <li><Link to="/about" className="hover:text-primary transition-smooth">About Us</Link></li>
+                <li><Link to="/careers" className="hover:text-primary transition-smooth">Careers</Link></li>
+                <li><Link to="/privacy" className="hover:text-primary transition-smooth">Privacy Policy</Link></li>
+                <li><Link to="/terms" className="hover:text-primary transition-smooth">Terms of Service</Link></li>
               </ul>
             </div>
           </div>

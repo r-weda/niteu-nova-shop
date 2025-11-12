@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export const Hero = () => {
   return (
@@ -69,20 +70,24 @@ export const Hero = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
-            <Button
-              size="lg"
-              className="gradient-primary text-primary-foreground hover:shadow-glow transition-smooth group px-8 py-6 text-lg"
-            >
-              Shop Now
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-smooth" />
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-2 hover:bg-accent px-8 py-6 text-lg"
-            >
-              View Categories
-            </Button>
+            <Link to="/products">
+              <Button
+                size="lg"
+                className="gradient-primary text-primary-foreground hover:shadow-glow transition-smooth group px-8 py-6 text-lg"
+              >
+                Shop Now
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-smooth" />
+              </Button>
+            </Link>
+            <Link to="/products">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-2 hover:bg-accent px-8 py-6 text-lg"
+              >
+                View Categories
+              </Button>
+            </Link>
           </motion.div>
 
           {/* Stats */}
