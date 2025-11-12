@@ -167,7 +167,7 @@ export const products: Product[] = [
   {
     id: "11",
     name: "Smart Home Security Camera",
-    price: 179.99,
+    price: 23399,
     category: "Home & Garden",
     image: "https://images.unsplash.com/photo-1558002038-1055907df827?w=500&h=500&fit=crop",
     rating: 4.6,
@@ -179,7 +179,7 @@ export const products: Product[] = [
   {
     id: "12",
     name: "Aromatherapy Diffuser",
-    price: 49.99,
+    price: 6499,
     category: "Home & Garden",
     image: "https://images.unsplash.com/photo-1603006905003-be475563bc59?w=500&h=500&fit=crop",
     rating: 4.5,
@@ -192,8 +192,8 @@ export const products: Product[] = [
   {
     id: "13",
     name: "Robot Vacuum Cleaner",
-    price: 399.99,
-    originalPrice: 599.99,
+    price: 51999,
+    originalPrice: 77999,
     category: "Home & Garden",
     image: "https://images.unsplash.com/photo-1558317374-067fb5f30001?w=500&h=500&fit=crop",
     rating: 4.8,
@@ -206,7 +206,7 @@ export const products: Product[] = [
   {
     id: "14",
     name: "Memory Foam Pillow Set",
-    price: 79.99,
+    price: 10399,
     category: "Home & Garden",
     image: "https://images.unsplash.com/photo-1631049035701-f1c036bb9e5d?w=500&h=500&fit=crop",
     rating: 4.7,
@@ -218,7 +218,7 @@ export const products: Product[] = [
   {
     id: "15",
     name: "LED String Lights",
-    price: 34.99,
+    price: 4549,
     category: "Home & Garden",
     image: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=500&h=500&fit=crop",
     rating: 4.6,
@@ -233,7 +233,7 @@ export const products: Product[] = [
   {
     id: "16",
     name: "Professional Hair Dryer",
-    price: 129.99,
+    price: 16899,
     category: "Beauty & Health",
     image: "https://images.unsplash.com/photo-1522338242992-e1a54906a8da?w=500&h=500&fit=crop",
     rating: 4.8,
@@ -245,7 +245,7 @@ export const products: Product[] = [
   {
     id: "17",
     name: "Fitness Tracker Band",
-    price: 79.99,
+    price: 10399,
     category: "Beauty & Health",
     image: "https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?w=500&h=500&fit=crop",
     rating: 4.5,
@@ -258,8 +258,8 @@ export const products: Product[] = [
   {
     id: "18",
     name: "Luxury Skincare Set",
-    price: 199.99,
-    originalPrice: 299.99,
+    price: 25999,
+    originalPrice: 38999,
     category: "Beauty & Health",
     image: "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=500&h=500&fit=crop",
     rating: 4.9,
@@ -272,7 +272,7 @@ export const products: Product[] = [
   {
     id: "19",
     name: "Electric Toothbrush",
-    price: 89.99,
+    price: 11699,
     category: "Beauty & Health",
     image: "https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?w=500&h=500&fit=crop",
     rating: 4.7,
@@ -284,7 +284,7 @@ export const products: Product[] = [
   {
     id: "20",
     name: "Yoga Mat Premium",
-    price: 49.99,
+    price: 6499,
     category: "Beauty & Health",
     image: "https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?w=500&h=500&fit=crop",
     rating: 4.6,
