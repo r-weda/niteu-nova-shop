@@ -99,8 +99,8 @@ export const products: Product[] = [
   {
     id: "6",
     name: "Classic Leather Jacket",
-    price: 299.99,
-    originalPrice: 449.99,
+    price: 38999,
+    originalPrice: 58499,
     category: "Fashion",
     image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=500&h=500&fit=crop",
     rating: 4.7,
@@ -113,7 +113,7 @@ export const products: Product[] = [
   {
     id: "7",
     name: "Designer Sunglasses",
-    price: 189.99,
+    price: 24699,
     category: "Fashion",
     image: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=500&h=500&fit=crop",
     rating: 4.6,
@@ -125,7 +125,7 @@ export const products: Product[] = [
   {
     id: "8",
     name: "Premium Denim Jeans",
-    price: 89.99,
+    price: 11699,
     category: "Fashion",
     image: "https://images.unsplash.com/photo-1542272604-787c3835535d?w=500&h=500&fit=crop",
     rating: 4.8,
@@ -138,7 +138,7 @@ export const products: Product[] = [
   {
     id: "9",
     name: "Luxury Handbag",
-    price: 399.99,
+    price: 51999,
     category: "Fashion",
     image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=500&h=500&fit=crop",
     rating: 4.9,
@@ -151,8 +151,8 @@ export const products: Product[] = [
   {
     id: "10",
     name: "Running Sneakers Pro",
-    price: 149.99,
-    originalPrice: 199.99,
+    price: 19499,
+    originalPrice: 25999,
     category: "Fashion",
     image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&h=500&fit=crop",
     rating: 4.7,
