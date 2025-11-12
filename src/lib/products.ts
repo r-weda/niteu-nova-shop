@@ -31,8 +31,8 @@ export const products: Product[] = [
   {
     id: "1",
     name: "Premium Wireless Headphones",
-    price: 299.99,
-    originalPrice: 399.99,
+    price: 38999,
+    originalPrice: 51999,
     category: "Electronics",
     image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&h=500&fit=crop",
     rating: 4.8,
@@ -45,7 +45,7 @@ export const products: Product[] = [
   {
     id: "2",
     name: "Smart Watch Pro",
-    price: 449.99,
+    price: 58499,
     category: "Electronics",
     image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&h=500&fit=crop",
     rating: 4.7,
@@ -58,8 +58,8 @@ export const products: Product[] = [
   {
     id: "3",
     name: "4K Action Camera",
-    price: 349.99,
-    originalPrice: 449.99,
+    price: 45499,
+    originalPrice: 58499,
     category: "Electronics",
     image: "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=500&h=500&fit=crop",
     rating: 4.6,
@@ -72,7 +72,7 @@ export const products: Product[] = [
   {
     id: "4",
     name: "Portable Bluetooth Speaker",
-    price: 129.99,
+    price: 16899,
     category: "Electronics",
     image: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&h=500&fit=crop",
     rating: 4.5,
@@ -84,7 +84,7 @@ export const products: Product[] = [
   {
     id: "5",
     name: "Wireless Gaming Mouse",
-    price: 89.99,
+    price: 11699,
     category: "Electronics",
     image: "https://images.unsplash.com/photo-1527814050087-3793815479db?w=500&h=500&fit=crop",
     rating: 4.9,
