@@ -299,7 +299,7 @@ export const products: Product[] = [
   {
     id: "21",
     name: "Camping Tent 4-Person",
-    price: 249.99,
+    price: 32499,
     category: "Sports & Outdoors",
     image: "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?w=500&h=500&fit=crop",
     rating: 4.7,
@@ -311,8 +311,8 @@ export const products: Product[] = [
   {
     id: "22",
     name: "Mountain Bike Pro",
-    price: 899.99,
-    originalPrice: 1199.99,
+    price: 116999,
+    originalPrice: 155999,
     category: "Sports & Outdoors",
     image: "https://images.unsplash.com/photo-1576435728678-68d0fbf94e91?w=500&h=500&fit=crop",
     rating: 4.8,
@@ -325,7 +325,7 @@ export const products: Product[] = [
   {
     id: "23",
     name: "Hiking Backpack 50L",
-    price: 129.99,
+    price: 16899,
     category: "Sports & Outdoors",
     image: "https://images.unsplash.com/photo-1622260614153-03223fb72052?w=500&h=500&fit=crop",
     rating: 4.6,
@@ -338,7 +338,7 @@ export const products: Product[] = [
   {
     id: "24",
     name: "Golf Club Set",
-    price: 599.99,
+    price: 77999,
     category: "Sports & Outdoors",
     image: "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=500&h=500&fit=crop",
     rating: 4.5,
@@ -350,7 +350,7 @@ export const products: Product[] = [
   {
     id: "25",
     name: "Fishing Rod & Reel Combo",
-    price: 89.99,
+    price: 11699,
     category: "Sports & Outdoors",
     image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=500&h=500&fit=crop",
     rating: 4.7,
@@ -364,7 +364,7 @@ export const products: Product[] = [
   {
     id: "26",
     name: "E-Reader Premium",
-    price: 199.99,
+    price: 25999,
     category: "Books & Media",
     image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=500&h=500&fit=crop",
     rating: 4.8,
@@ -377,7 +377,7 @@ export const products: Product[] = [
   {
     id: "27",
     name: "Vinyl Record Player",
-    price: 249.99,
+    price: 32499,
     category: "Books & Media",
     image: "https://images.unsplash.com/photo-1603048588665-791ca8aea617?w=500&h=500&fit=crop",
     rating: 4.6,
@@ -389,7 +389,7 @@ export const products: Product[] = [
   {
     id: "28",
     name: "Board Game Collection",
-    price: 79.99,
+    price: 10399,
     category: "Books & Media",
     image: "https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?w=500&h=500&fit=crop",
     rating: 4.7,
@@ -402,7 +402,7 @@ export const products: Product[] = [
   {
     id: "29",
     name: "Art Supplies Professional Set",
-    price: 149.99,
+    price: 19499,
     category: "Books & Media",
     image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=500&h=500&fit=crop",
     rating: 4.8,
@@ -414,8 +414,8 @@ export const products: Product[] = [
   {
     id: "30",
     name: "Digital Drawing Tablet",
-    price: 299.99,
-    originalPrice: 399.99,
+    price: 38999,
+    originalPrice: 51999,
     category: "Books & Media",
     image: "https://images.unsplash.com/photo-1575909812264-6902b55846ad?w=500&h=500&fit=crop",
     rating: 4.9,
@@ -430,7 +430,7 @@ export const products: Product[] = [
   {
     id: "31",
     name: "Remote Control Drone",
-    price: 199.99,
+    price: 25999,
     category: "Toys & Games",
     image: "https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=500&h=500&fit=crop",
     rating: 4.7,
@@ -443,7 +443,7 @@ export const products: Product[] = [
   {
     id: "32",
     name: "Building Blocks Mega Set",
-    price: 89.99,
+    price: 11699,
     category: "Toys & Games",
     image: "https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=500&h=500&fit=crop",
     rating: 4.8,
@@ -456,7 +456,7 @@ export const products: Product[] = [
   {
     id: "33",
     name: "Educational STEM Kit",
-    price: 69.99,
+    price: 9099,
     category: "Toys & Games",
     image: "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=500&h=500&fit=crop",
     rating: 4.6,
@@ -468,7 +468,7 @@ export const products: Product[] = [
   {
     id: "34",
     name: "Action Figure Collection",
-    price: 49.99,
+    price: 6499,
     category: "Toys & Games",
     image: "https://images.unsplash.com/photo-1560393464-5c69a73c5770?w=500&h=500&fit=crop",
     rating: 4.5,
@@ -480,7 +480,7 @@ export const products: Product[] = [
   {
     id: "35",
     name: "Puzzle 3D Castle",
-    price: 59.99,
+    price: 7799,
     category: "Toys & Games",
     image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&h=500&fit=crop",
     rating: 4.7,
@@ -495,7 +495,7 @@ export const products: Product[] = [
   {
     id: "36",
     name: "Dash Cam Pro",
-    price: 149.99,
+    price: 19499,
     category: "Automotive",
     image: "https://images.unsplash.com/photo-1602523896029-4a5c0c5f0e14?w=500&h=500&fit=crop",
     rating: 4.6,
@@ -507,7 +507,7 @@ export const products: Product[] = [
   {
     id: "37",
     name: "Car Vacuum Cleaner",
-    price: 69.99,
+    price: 9099,
     category: "Automotive",
     image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=500&h=500&fit=crop",
     rating: 4.5,
@@ -520,7 +520,7 @@ export const products: Product[] = [
   {
     id: "38",
     name: "Tire Inflator Portable",
-    price: 59.99,
+    price: 7799,
     category: "Automotive",
     image: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=500&h=500&fit=crop",
     rating: 4.7,
@@ -532,7 +532,7 @@ export const products: Product[] = [
   {
     id: "39",
     name: "Car Phone Mount",
-    price: 29.99,
+    price: 3899,
     category: "Automotive",
     image: "https://images.unsplash.com/photo-1556656793-08538906a9f8?w=500&h=500&fit=crop",
     rating: 4.4,
@@ -544,7 +544,7 @@ export const products: Product[] = [
   {
     id: "40",
     name: "Jump Starter Power Bank",
-    price: 99.99,
+    price: 12999,
     category: "Automotive",
     image: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=500&h=500&fit=crop",
     rating: 4.8,
