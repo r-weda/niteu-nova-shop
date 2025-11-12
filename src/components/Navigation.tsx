@@ -1,10 +1,12 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { ShoppingCart, Search, Menu, X, Moon, Sun, Heart, User } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+import { ShoppingCart, Search, Menu, X, Moon, Sun, Heart, User, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { categories } from "@/lib/products";
 import { motion, AnimatePresence } from "framer-motion";
+import { useAuth } from "@/hooks/use-auth";
 
 interface NavigationProps {
   cartItemCount: number;
@@ -16,6 +18,8 @@ interface NavigationProps {
 export const Navigation = ({ cartItemCount, onSearchChange, darkMode, onToggleDarkMode }: NavigationProps) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
 
   const handleSearch = (value: string) => {
     setSearchQuery(value);
@@ -62,13 +66,27 @@ export const Navigation = ({ cartItemCount, onSearchChange, darkMode, onToggleDa
               {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
             </Button>
 
-            <Button variant="ghost" size="icon" className="hidden md:flex rounded-full hover:bg-accent">
-              <Heart className="w-5 h-5" />
-            </Button>
-
-            <Button variant="ghost" size="icon" className="hidden md:flex rounded-full hover:bg-accent">
-              <User className="w-5 h-5" />
-            </Button>
+            {user ? (
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" size="icon" className="hidden md:flex rounded-full hover:bg-accent">
+                    <User className="w-5 h-5" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end">
+                  <DropdownMenuItem onClick={() => navigate("/account")}>My Account</DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => navigate("/orders")}>Orders</DropdownMenuItem>
+                  <DropdownMenuItem onClick={logout}>
+                    <LogOut className="w-4 h-4 mr-2" />
+                    Logout
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            ) : (
+              <Button variant="ghost" size="icon" className="hidden md:flex rounded-full hover:bg-accent" onClick={() => navigate("/login")}>
+                <User className="w-5 h-5" />
+              </Button>
+            )}
 
             <Link to="/cart">
               <Button variant="ghost" size="icon" className="relative rounded-full hover:bg-accent">
@@ -99,12 +117,13 @@ export const Navigation = ({ cartItemCount, onSearchChange, darkMode, onToggleDa
         {/* Categories - Desktop */}
         <div className="hidden md:flex items-center justify-center space-x-6 pb-4 overflow-x-auto">
           {categories.slice(0, 8).map((category) => (
-            <button
+            <Link
               key={category}
+              to={`/products?category=${category.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}`}
               className="text-sm font-medium text-muted-foreground hover:text-primary transition-smooth whitespace-nowrap"
             >
               {category}
-            </button>
+            </Link>
           ))}
         </div>
 

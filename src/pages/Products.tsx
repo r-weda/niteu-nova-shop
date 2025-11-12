@@ -1,30 +1,36 @@
 import { useState, useEffect } from "react";
+import { useSearchParams, Link } from "react-router-dom";
 import { Navigation } from "@/components/Navigation";
-import { Hero } from "@/components/Hero";
 import { ProductCard } from "@/components/ProductCard";
 import { products, categories, Product } from "@/lib/products";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import { Badge } from "@/components/ui/badge";
-import { Filter, X } from "lucide-react";
+import { Filter, X, ArrowLeft } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useToast } from "@/hooks/use-toast";
+import { formatPrice } from "@/lib/utils/format";
 
 interface CartItem extends Product {
   quantity: number;
 }
 
-const Index = () => {
+const Products = () => {
+  const [searchParams] = useSearchParams();
+  const categoryParam = searchParams.get("category");
+  const filterParam = searchParams.get("filter");
+  
   const [cart, setCart] = useState<CartItem[]>([]);
   const [filteredProducts, setFilteredProducts] = useState(products);
-  const [selectedCategory, setSelectedCategory] = useState<string>("All");
+  const [selectedCategory, setSelectedCategory] = useState<string>(
+    categoryParam ? categories.find(c => c.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-') === categoryParam) || "All" : "All"
+  );
   const [priceRange, setPriceRange] = useState([0, 200000]);
   const [searchQuery, setSearchQuery] = useState("");
   const [showFilters, setShowFilters] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
   const { toast } = useToast();
 
-  // Dark mode toggle
   useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add("dark");
@@ -33,19 +39,23 @@ const Index = () => {
     }
   }, [darkMode]);
 
-  // Filter products
   useEffect(() => {
     let filtered = products;
 
-    // Category filter
+    if (filterParam === "best-sellers") {
+      filtered = filtered.filter((p) => p.badge === "Best Seller");
+    } else if (filterParam === "new-arrivals") {
+      filtered = filtered.filter((p) => p.badge === "New");
+    } else if (filterParam === "sale") {
+      filtered = filtered.filter((p) => p.badge === "Sale" || p.originalPrice);
+    }
+
     if (selectedCategory !== "All") {
       filtered = filtered.filter((p) => p.category === selectedCategory);
     }
 
-    // Price filter
     filtered = filtered.filter((p) => p.price >= priceRange[0] && p.price <= priceRange[1]);
 
-    // Search filter
     if (searchQuery) {
       filtered = filtered.filter(
         (p) =>
@@ -56,7 +66,7 @@ const Index = () => {
     }
 
     setFilteredProducts(filtered);
-  }, [selectedCategory, priceRange, searchQuery]);
+  }, [selectedCategory, priceRange, searchQuery, filterParam]);
 
   const addToCart = (product: Product) => {
     setCart((prevCart) => {
@@ -86,26 +96,33 @@ const Index = () => {
         onToggleDarkMode={() => setDarkMode(!darkMode)}
       />
 
-      <Hero />
+      <div className="container mx-auto px-4 py-8">
+        <Link to="/" className="inline-flex items-center text-sm text-muted-foreground hover:text-primary mb-6">
+          <ArrowLeft className="w-4 h-4 mr-2" />
+          Back to Home
+        </Link>
 
-      {/* Filters Section */}
-      <section className="py-8 border-b border-border bg-card/50">
-        <div className="container mx-auto px-4">
+        <h1 className="text-4xl font-bold mb-8">
+          {filterParam === "best-sellers" && "Best Sellers"}
+          {filterParam === "new-arrivals" && "New Arrivals"}
+          {filterParam === "sale" && "Sale Items"}
+          {!filterParam && selectedCategory === "All" && "All Products"}
+          {!filterParam && selectedCategory !== "All" && selectedCategory}
+        </h1>
+
+        <section className="py-8 border-b border-border bg-card/50 rounded-lg px-6 mb-8">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold">
-              {selectedCategory === "All" ? "All Products" : selectedCategory}
-            </h2>
+            <h2 className="text-2xl font-bold">Filters</h2>
             <Button
               variant="outline"
               onClick={() => setShowFilters(!showFilters)}
               className="md:hidden"
             >
               <Filter className="w-4 h-4 mr-2" />
-              Filters
+              {showFilters ? "Hide" : "Show"} Filters
             </Button>
           </div>
 
-          {/* Mobile Filters */}
           <AnimatePresence>
             {(showFilters || window.innerWidth >= 768) && (
               <motion.div
@@ -114,7 +131,6 @@ const Index = () => {
                 exit={{ height: 0, opacity: 0 }}
                 className="space-y-6"
               >
-                {/* Categories */}
                 <div>
                   <h3 className="font-semibold mb-3 text-sm text-muted-foreground">Categories</h3>
                   <div className="flex flex-wrap gap-2">
@@ -138,10 +154,9 @@ const Index = () => {
                   </div>
                 </div>
 
-                {/* Price Range */}
                 <div>
                   <h3 className="font-semibold mb-3 text-sm text-muted-foreground">
-                    Price Range: KSh {priceRange[0].toLocaleString()} - KSh {priceRange[1].toLocaleString()}
+                    Price Range: {formatPrice(priceRange[0])} - {formatPrice(priceRange[1])}
                   </h3>
                   <Slider
                     min={0}
@@ -153,7 +168,6 @@ const Index = () => {
                   />
                 </div>
 
-                {/* Active Filters */}
                 {(selectedCategory !== "All" || searchQuery) && (
                   <div className="flex items-center gap-2 flex-wrap">
                     <span className="text-sm text-muted-foreground">Active filters:</span>
@@ -180,12 +194,9 @@ const Index = () => {
               </motion.div>
             )}
           </AnimatePresence>
-        </div>
-      </section>
+        </section>
 
-      {/* Products Grid */}
-      <section className="py-12">
-        <div className="container mx-auto px-4">
+        <section>
           {filteredProducts.length === 0 ? (
             <div className="text-center py-16">
               <p className="text-xl text-muted-foreground">No products found matching your criteria.</p>
@@ -213,56 +224,10 @@ const Index = () => {
               </div>
             </>
           )}
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-card border-t border-border py-12 mt-16">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div>
-              <h3 className="font-bold text-lg mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                Niteu
-              </h3>
-              <p className="text-sm text-muted-foreground">
-                Your one-stop shop for premium products across multiple categories.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Shop</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><Link to="/products" className="hover:text-primary transition-smooth">All Products</Link></li>
-                <li><Link to="/products?filter=best-sellers" className="hover:text-primary transition-smooth">Best Sellers</Link></li>
-                <li><Link to="/products?filter=new-arrivals" className="hover:text-primary transition-smooth">New Arrivals</Link></li>
-                <li><Link to="/products?filter=sale" className="hover:text-primary transition-smooth">Sale</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Support</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><Link to="/contact" className="hover:text-primary transition-smooth">Contact Us</Link></li>
-                <li><Link to="/faq" className="hover:text-primary transition-smooth">FAQ</Link></li>
-                <li><Link to="/shipping" className="hover:text-primary transition-smooth">Shipping Info</Link></li>
-                <li><Link to="/returns" className="hover:text-primary transition-smooth">Returns</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Company</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><Link to="/about" className="hover:text-primary transition-smooth">About Us</Link></li>
-                <li><Link to="/careers" className="hover:text-primary transition-smooth">Careers</Link></li>
-                <li><Link to="/privacy" className="hover:text-primary transition-smooth">Privacy Policy</Link></li>
-                <li><Link to="/terms" className="hover:text-primary transition-smooth">Terms of Service</Link></li>
-              </ul>
-            </div>
-          </div>
-          <div className="mt-8 pt-8 border-t border-border text-center text-sm text-muted-foreground">
-            <p>&copy; 2024 Niteu. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+        </section>
+      </div>
     </div>
   );
 };
 
-export default Index;
+export default Products;
