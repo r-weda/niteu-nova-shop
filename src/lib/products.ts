@@ -559,7 +559,7 @@ export const products: Product[] = [
   {
     id: "41",
     name: "Automatic Pet Feeder",
-    price: 89.99,
+    price: 11699,
     category: "Pet Supplies",
     image: "https://images.unsplash.com/photo-1581888227599-779811939961?w=500&h=500&fit=crop",
     rating: 4.6,
@@ -571,7 +571,7 @@ export const products: Product[] = [
   {
     id: "42",
     name: "Pet Camera with Treat Dispenser",
-    price: 149.99,
+    price: 19499,
     category: "Pet Supplies",
     image: "https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=500&h=500&fit=crop",
     rating: 4.7,
@@ -584,7 +584,7 @@ export const products: Product[] = [
   {
     id: "43",
     name: "Premium Dog Bed",
-    price: 79.99,
+    price: 10399,
     category: "Pet Supplies",
     image: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=500&h=500&fit=crop",
     rating: 4.8,
@@ -597,8 +597,8 @@ export const products: Product[] = [
   {
     id: "44",
     name: "Cat Litter Box Automatic",
-    price: 299.99,
-    originalPrice: 399.99,
+    price: 38999,
+    originalPrice: 51999,
     category: "Pet Supplies",
     image: "https://images.unsplash.com/photo-1501472312651-726afe119ff1?w=500&h=500&fit=crop",
     rating: 4.5,
@@ -611,7 +611,7 @@ export const products: Product[] = [
   {
     id: "45",
     name: "Interactive Cat Toy",
-    price: 34.99,
+    price: 4549,
     category: "Pet Supplies",
     image: "https://images.unsplash.com/photo-1545249390-6bdfa286032f?w=500&h=500&fit=crop",
     rating: 4.6,
@@ -625,8 +625,8 @@ export const products: Product[] = [
   {
     id: "46",
     name: "Ergonomic Office Chair",
-    price: 349.99,
-    originalPrice: 499.99,
+    price: 45499,
+    originalPrice: 64999,
     category: "Office Supplies",
     image: "https://images.unsplash.com/photo-1580480055273-228ff5388ef8?w=500&h=500&fit=crop",
     rating: 4.8,
@@ -639,7 +639,7 @@ export const products: Product[] = [
   {
     id: "47",
     name: "Standing Desk Converter",
-    price: 249.99,
+    price: 32499,
     category: "Office Supplies",
     image: "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?w=500&h=500&fit=crop",
     rating: 4.7,
@@ -652,7 +652,7 @@ export const products: Product[] = [
   {
     id: "48",
     name: "Wireless Keyboard & Mouse",
-    price: 79.99,
+    price: 10399,
     category: "Office Supplies",
     image: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=500&h=500&fit=crop",
     rating: 4.6,
@@ -664,7 +664,7 @@ export const products: Product[] = [
   {
     id: "49",
     name: "Monitor Arm Dual Mount",
-    price: 129.99,
+    price: 16899,
     category: "Office Supplies",
     image: "https://images.unsplash.com/photo-1527443154391-507e9dc6c5cc?w=500&h=500&fit=crop",
     rating: 4.7,
@@ -676,7 +676,7 @@ export const products: Product[] = [
   {
     id: "50",
     name: "Desk Organizer Set",
-    price: 49.99,
+    price: 6499,
     category: "Office Supplies",
     image: "https://images.unsplash.com/photo-1594050760280-4c7ea6cf3e48?w=500&h=500&fit=crop",
     rating: 4.5,
