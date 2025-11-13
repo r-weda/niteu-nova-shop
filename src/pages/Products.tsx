@@ -2,25 +2,21 @@ import { useState, useEffect } from "react";
 import { useSearchParams, Link } from "react-router-dom";
 import { Navigation } from "@/components/Navigation";
 import { ProductCard } from "@/components/ProductCard";
-import { products, categories, Product } from "@/lib/products";
+import { products, categories } from "@/lib/products";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import { Badge } from "@/components/ui/badge";
 import { Filter, X, ArrowLeft } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useToast } from "@/hooks/use-toast";
 import { formatPrice } from "@/lib/utils/format";
-
-interface CartItem extends Product {
-  quantity: number;
-}
+import { useCart } from "@/hooks/use-cart";
 
 const Products = () => {
   const [searchParams] = useSearchParams();
   const categoryParam = searchParams.get("category");
   const filterParam = searchParams.get("filter");
   
-  const [cart, setCart] = useState<CartItem[]>([]);
+  const { addToCart, cartItemCount } = useCart();
   const [filteredProducts, setFilteredProducts] = useState(products);
   const [selectedCategory, setSelectedCategory] = useState<string>(
     categoryParam ? categories.find(c => c.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-') === categoryParam) || "All" : "All"
@@ -29,7 +25,6 @@ const Products = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [showFilters, setShowFilters] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
-  const { toast } = useToast();
 
   useEffect(() => {
     if (darkMode) {
@@ -67,25 +62,6 @@ const Products = () => {
 
     setFilteredProducts(filtered);
   }, [selectedCategory, priceRange, searchQuery, filterParam]);
-
-  const addToCart = (product: Product) => {
-    setCart((prevCart) => {
-      const existingItem = prevCart.find((item) => item.id === product.id);
-      if (existingItem) {
-        return prevCart.map((item) =>
-          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
-        );
-      }
-      return [...prevCart, { ...product, quantity: 1 }];
-    });
-
-    toast({
-      title: "Added to cart",
-      description: `${product.name} has been added to your cart.`,
-    });
-  };
-
-  const cartItemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
     <div className="min-h-screen bg-background">

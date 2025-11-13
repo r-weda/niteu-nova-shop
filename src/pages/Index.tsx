@@ -3,28 +3,23 @@ import { Link } from "react-router-dom";
 import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/Hero";
 import { ProductCard } from "@/components/ProductCard";
-import { products, categories, Product } from "@/lib/products";
+import { products, categories } from "@/lib/products";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import { Badge } from "@/components/ui/badge";
 import { Filter, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { formatPrice } from "@/lib/utils/format";
-import { useToast } from "@/hooks/use-toast";
-
-interface CartItem extends Product {
-  quantity: number;
-}
+import { useCart } from "@/hooks/use-cart";
 
 const Index = () => {
-  const [cart, setCart] = useState<CartItem[]>([]);
+  const { addToCart, cartItemCount } = useCart();
   const [filteredProducts, setFilteredProducts] = useState(products);
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const [priceRange, setPriceRange] = useState([0, 200000]);
   const [searchQuery, setSearchQuery] = useState("");
   const [showFilters, setShowFilters] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
-  const { toast } = useToast();
 
   // Dark mode toggle
   useEffect(() => {
@@ -59,25 +54,6 @@ const Index = () => {
 
     setFilteredProducts(filtered);
   }, [selectedCategory, priceRange, searchQuery]);
-
-  const addToCart = (product: Product) => {
-    setCart((prevCart) => {
-      const existingItem = prevCart.find((item) => item.id === product.id);
-      if (existingItem) {
-        return prevCart.map((item) =>
-          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
-        );
-      }
-      return [...prevCart, { ...product, quantity: 1 }];
-    });
-
-    toast({
-      title: "Added to cart",
-      description: `${product.name} has been added to your cart.`,
-    });
-  };
-
-  const cartItemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
     <div className="min-h-screen bg-background">
