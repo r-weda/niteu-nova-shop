@@ -4,6 +4,7 @@ import { Product } from "@/lib/products";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
+import { formatPrice } from "@/lib/utils/format";
 
 interface ProductCardProps {
   product: Product;
@@ -99,10 +100,10 @@ export const ProductCard = ({ product, onAddToCart }: ProductCardProps) => {
         <div className="flex items-center justify-between">
           <div>
             <div className="flex items-center gap-2">
-              <span className="text-2xl font-bold text-primary">${product.price}</span>
+              <span className="text-2xl font-bold text-primary">{formatPrice(product.price)}</span>
               {product.originalPrice && (
                 <span className="text-sm text-muted-foreground line-through">
-                  ${product.originalPrice}
+                  {formatPrice(product.originalPrice)}
                 </span>
               )}
             </div>

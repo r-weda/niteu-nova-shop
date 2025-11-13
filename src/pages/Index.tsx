@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/Hero";
 import { ProductCard } from "@/components/ProductCard";
@@ -8,6 +9,7 @@ import { Slider } from "@/components/ui/slider";
 import { Badge } from "@/components/ui/badge";
 import { Filter, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { formatPrice } from "@/lib/utils/format";
 import { useToast } from "@/hooks/use-toast";
 
 interface CartItem extends Product {
