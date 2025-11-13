@@ -1,73 +1,185 @@
-# Welcome to your Lovable project
+# Niteu Nova Shop
 
-## Project info
+> **E‑commerce storefront / demo** — Clean, modern shop UI and product browsing experience.
 
-**URL**: https://lovable.dev/projects/b73a8a07-b4c5-42b6-b3a4-6cf3b87fd4f6
+**Live demo:** [https://niteu-nova-shop.vercel.app/](https://niteu-nova-shop.vercel.app/)
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## Table of contents
 
-**Use Lovable**
+1. [About](#about)
+2. [Demo](#demo)
+3. [Features](#features)
+4. [Tech stack](#tech-stack)
+5. [Installation](#installation)
+6. [Running the project](#running-the-project)
+7. [Project structure](#project-structure)
+8. [How to contribute](#how-to-contribute)
+9. [Deployment](#deployment)
+10. [Troubleshooting](#troubleshooting)
+11. [Roadmap](#roadmap)
+12. [License & credits](#license--credits)
+13. [Contact](#contact)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/b73a8a07-b4c5-42b6-b3a4-6cf3b87fd4f6) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## About
 
-**Use your preferred IDE**
+Niteu Nova Shop is a frontend e‑commerce demo showcasing product listing, product details, a cart flow, and a checkout UI. It is intended as a portfolio project or starter store for customization and integration with a backend or headless commerce API.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Use this README as the single source of truth for setup, contribution, and deployment instructions.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
-Follow these steps:
+## Demo
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+Open the live demo to explore the store: [https://niteu-nova-shop.vercel.app/](https://niteu-nova-shop.vercel.app/)
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+> Tip: If you want screenshots for the README, add them to `/public/assets` (or replace with your own path) and update the image links below.
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```md
+![Homepage screenshot](./public/assets/homepage.png)
+![Product page screenshot](./public/assets/product.png)
 ```
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Features
 
-**Use GitHub Codespaces**
+* Responsive product listing (grid & filters)
+* Product detail pages with images and descriptions
+* Add to cart and cart review
+* Simple checkout UI (client-side demo only)
+* Search and category navigation (if available)
+* Easily themeable styles
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+*(Adjust features to match actual implementation.)*
 
-## What technologies are used for this project?
+---
 
-This project is built with:
+## Tech stack
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+> Replace or edit these items to match the project's real dependencies.
 
-## How can I deploy this project?
+* Frontend: **React** (or **Next.js**) — single page / server-rendered UI
+* Styling: plain CSS, SCSS or utility CSS (Tailwind) — update as needed
+* Bundler / framework: Create React App / Next.js
+* Hosting: **Vercel** (live demo hosted on vercel.app)
 
-Simply open [Lovable](https://lovable.dev/projects/b73a8a07-b4c5-42b6-b3a4-6cf3b87fd4f6) and click on Share -> Publish.
+---
 
-## Can I connect a custom domain to my Lovable project?
+## Installation
 
-Yes, you can!
+```bash
+# clone the repo
+git clone <YOUR_REPO_URL>
+cd <YOUR_PROJECT_FOLDER>
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+# install dependencies
+npm install
+# or
+yarn
+```
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+> If this project uses pnpm, replace the install command accordingly.
+
+---
+
+## Running the project
+
+```bash
+# local dev server
+npm run dev
+# or
+npm start
+
+# build for production
+npm run build
+
+# preview production build (if supported)
+npm run start:prod
+```
+
+Open [http://localhost:3000](http://localhost:3000) (or the port shown in the console).
+
+---
+
+## Project structure (example)
+
+```
+├─ public/                # static assets (images, icons)
+├─ src/
+│  ├─ components/         # UI components (Header, Footer, ProductCard)
+│  ├─ pages/              # Routes / pages (Home, Product, Cart)
+│  ├─ styles/             # CSS / Tailwind config
+│  ├─ utils/              # helpers, formatters
+│  └─ data/               # sample product data (if no API)
+├─ package.json
+└─ README.md
+```
+
+Update this section to reflect the actual repo.
+
+---
+
+## How to contribute
+
+1. Fork the repo
+2. Create a feature branch: `git checkout -b feat/my-new-feature`
+3. Commit your changes: `git commit -m "feat: add ..."`
+4. Push and open a pull request
+
+Please keep PRs small and provide screenshots or a short video when the change affects UI.
+
+---
+
+## Deployment
+
+This project is ready to deploy to Vercel (the demo is already hosted). Steps for deploying manually:
+
+1. Create a Vercel account at [https://vercel.com/](https://vercel.com/)
+2. Import the GitHub repository
+3. Set any environment variables (if required) in Vercel dashboard
+4. Deploy — Vercel will build and publish to a `vercel.app` domain
+
+For other hosts, build the production bundle with `npm run build` and follow hosting docs for static sites or Node servers.
+
+---
+
+## Troubleshooting
+
+* **Missing images in production:** Ensure images are in `public/` and referenced with the correct path.
+* **Port conflicts:** Change the `PORT` env var or use the port your framework suggests.
+* **Build errors:** Check `node` and `npm/yarn` versions. Try removing `node_modules` and reinstalling.
+
+---
+
+## Roadmap (suggestions)
+
+* Connect to a headless commerce API (Shopify, Commerce.js, Snipcart)
+* Add user auth and order history
+* Implement payment gateway integration (Stripe)
+* Improve accessibility (A11y) and performance audits
+
+---
+
+## License & credits
+
+This project is open source — change the license as needed.
+
+```
+MIT License
+```
+
+Give credit to designers, icon packs, and libraries used in the project.
+
+---
+
+## Contact
+
+If you want edits, screenshots added to the README, or a shorter `README.md` for GitHub, tell me what you want changed.
+
+---
+
+**Made with ❤️ — Niteu Nova Shop README template**
