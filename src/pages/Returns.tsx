@@ -5,11 +5,12 @@ import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle, XCircle } from "lucide-react";
 import { useCart } from "@/hooks/use-cart";
 import { useState } from "react";
+import { useDarkMode } from "@/hooks/use-dark-mode";
 
 const Returns = () => {
   const { cartItemCount } = useCart();
   const [searchQuery, setSearchQuery] = useState("");
-  const [darkMode, setDarkMode] = useState(false);
+  const { darkMode, toggleDarkMode } = useDarkMode();
 
   return (
     <div className="min-h-screen bg-background">
@@ -17,7 +18,7 @@ const Returns = () => {
         cartItemCount={cartItemCount}
         onSearchChange={setSearchQuery}
         darkMode={darkMode}
-        onToggleDarkMode={() => setDarkMode(!darkMode)}
+        onToggleDarkMode={toggleDarkMode}
       />
 
       <section className="py-16">

@@ -11,24 +11,16 @@ import { Filter, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { formatPrice } from "@/lib/utils/format";
 import { useCart } from "@/hooks/use-cart";
+import { useDarkMode } from "@/hooks/use-dark-mode";
 
 const Index = () => {
   const { addToCart, cartItemCount } = useCart();
+  const { darkMode, toggleDarkMode } = useDarkMode();
   const [filteredProducts, setFilteredProducts] = useState(products);
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const [priceRange, setPriceRange] = useState([0, 200000]);
   const [searchQuery, setSearchQuery] = useState("");
   const [showFilters, setShowFilters] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
-
-  // Dark mode toggle
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [darkMode]);
 
   // Filter products
   useEffect(() => {
@@ -61,7 +53,7 @@ const Index = () => {
         cartItemCount={cartItemCount}
         onSearchChange={setSearchQuery}
         darkMode={darkMode}
-        onToggleDarkMode={() => setDarkMode(!darkMode)}
+        onToggleDarkMode={toggleDarkMode}
       />
 
       <Hero />

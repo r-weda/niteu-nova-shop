@@ -5,13 +5,14 @@ import { useCart } from "@/hooks/use-cart";
 import { useAuth } from "@/hooks/use-auth";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDarkMode } from "@/hooks/use-dark-mode";
 
 const Account = () => {
   const { cartItemCount } = useCart();
   const { user, logout } = useAuth();
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
-  const [darkMode, setDarkMode] = useState(false);
+  const { darkMode, toggleDarkMode } = useDarkMode();
 
   if (!user) {
     navigate("/login");
@@ -24,7 +25,7 @@ const Account = () => {
         cartItemCount={cartItemCount}
         onSearchChange={setSearchQuery}
         darkMode={darkMode}
-        onToggleDarkMode={() => setDarkMode(!darkMode)}
+        onToggleDarkMode={toggleDarkMode}
       />
 
       <section className="py-16">

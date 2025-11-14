@@ -205,15 +205,16 @@ export const products: Product[] = [
   },
   {
     id: "14",
-    name: "Memory Foam Pillow Set",
+    name: "Wireless Earbuds Pro",
     price: 10399,
-    category: "Home & Garden",
-    image: "https://images.unsplash.com/photo-1631049035701-f1c036bb9e5d?w=500&h=500&fit=crop",
-    rating: 4.7,
-    reviews: 3421,
-    description: "Premium memory foam pillows for ultimate comfort and support.",
-    features: ["Memory foam", "Cooling gel", "Hypoallergenic", "Set of 2"],
-    inStock: true
+    category: "Electronics",
+    image: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=500&h=500&fit=crop",
+    rating: 4.8,
+    reviews: 3842,
+    description: "Premium wireless earbuds with active noise cancellation and crystal clear sound.",
+    features: ["Active noise cancellation", "35-hour battery life", "IPX7 waterproof", "Touch controls"],
+    inStock: true,
+    badge: "Best Seller"
   },
   {
     id: "15",
@@ -494,15 +495,16 @@ export const products: Product[] = [
   // Automotive
   {
     id: "36",
-    name: "Dash Cam Pro",
+    name: "Mechanical Keyboard RGB",
     price: 19499,
-    category: "Automotive",
-    image: "https://images.unsplash.com/photo-1602523896029-4a5c0c5f0e14?w=500&h=500&fit=crop",
-    rating: 4.6,
-    reviews: 2134,
-    description: "Full HD dash cam with night vision and parking mode.",
-    features: ["1080p Full HD", "Night vision", "Loop recording", "G-sensor"],
-    inStock: true
+    category: "Electronics",
+    image: "https://images.unsplash.com/photo-1595225476474-87563907a212?w=500&h=500&fit=crop",
+    rating: 4.9,
+    reviews: 2687,
+    description: "Premium mechanical keyboard with customizable RGB lighting and tactile switches.",
+    features: ["Mechanical switches", "RGB backlighting", "N-key rollover", "Aluminum frame"],
+    inStock: true,
+    badge: "New"
   },
   {
     id: "37",
@@ -675,14 +677,14 @@ export const products: Product[] = [
   },
   {
     id: "50",
-    name: "Desk Organizer Set",
+    name: "LED Desk Lamp",
     price: 6499,
     category: "Office Supplies",
-    image: "https://images.unsplash.com/photo-1594050760280-4c7ea6cf3e48?w=500&h=500&fit=crop",
-    rating: 4.5,
-    reviews: 2890,
-    description: "Premium desk organizer set to keep your workspace tidy.",
-    features: ["Multiple compartments", "Premium materials", "Modern design", "10-piece set"],
+    image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=500&h=500&fit=crop",
+    rating: 4.8,
+    reviews: 3124,
+    description: "Modern LED desk lamp with adjustable brightness and color temperature.",
+    features: ["Touch control", "USB charging port", "Eye-care technology", "Adjustable arm"],
     inStock: true,
     badge: "Best Seller"
   }

@@ -2,11 +2,12 @@ import { Navigation } from "@/components/Navigation";
 import { Card, CardContent } from "@/components/ui/card";
 import { useCart } from "@/hooks/use-cart";
 import { useState } from "react";
+import { useDarkMode } from "@/hooks/use-dark-mode";
 
 const Terms = () => {
   const { cartItemCount } = useCart();
   const [searchQuery, setSearchQuery] = useState("");
-  const [darkMode, setDarkMode] = useState(false);
+  const { darkMode, toggleDarkMode } = useDarkMode();
 
   return (
     <div className="min-h-screen bg-background">
@@ -14,7 +15,7 @@ const Terms = () => {
         cartItemCount={cartItemCount}
         onSearchChange={setSearchQuery}
         darkMode={darkMode}
-        onToggleDarkMode={() => setDarkMode(!darkMode)}
+        onToggleDarkMode={toggleDarkMode}
       />
 
       <section className="py-16">
