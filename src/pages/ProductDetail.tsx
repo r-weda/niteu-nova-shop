@@ -7,27 +7,20 @@ import { Badge } from "@/components/ui/badge";
 import { Star, ShoppingCart, Heart, ArrowLeft, Truck, Shield, Clock } from "lucide-react";
 import { motion } from "framer-motion";
 import { useToast } from "@/hooks/use-toast";
+import { useDarkMode } from "@/hooks/use-dark-mode";
 
 const ProductDetail = () => {
   const { id } = useParams();
   const [product, setProduct] = useState<Product | null>(null);
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState(0);
-  const [darkMode, setDarkMode] = useState(false);
+  const { darkMode, toggleDarkMode } = useDarkMode();
   const { toast } = useToast();
 
   useEffect(() => {
     const foundProduct = products.find((p) => p.id === id);
     setProduct(foundProduct || null);
   }, [id]);
-
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [darkMode]);
 
   const addToCart = () => {
     if (product) {
@@ -45,7 +38,7 @@ const ProductDetail = () => {
           cartItemCount={0}
           onSearchChange={() => {}}
           darkMode={darkMode}
-          onToggleDarkMode={() => setDarkMode(!darkMode)}
+          onToggleDarkMode={toggleDarkMode}
         />
         <div className="container mx-auto px-4 py-16 text-center">
           <h1 className="text-2xl font-bold mb-4">Product not found</h1>
@@ -67,7 +60,7 @@ const ProductDetail = () => {
         cartItemCount={0}
         onSearchChange={() => {}}
         darkMode={darkMode}
-        onToggleDarkMode={() => setDarkMode(!darkMode)}
+        onToggleDarkMode={toggleDarkMode}
       />
 
       <div className="container mx-auto px-4 py-8">

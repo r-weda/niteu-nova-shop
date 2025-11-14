@@ -4,11 +4,12 @@ import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { useCart } from "@/hooks/use-cart";
 import { useState } from "react";
+import { useDarkMode } from "@/hooks/use-dark-mode";
 
 const FAQ = () => {
   const { cartItemCount } = useCart();
   const [searchQuery, setSearchQuery] = useState("");
-  const [darkMode, setDarkMode] = useState(false);
+  const { darkMode, toggleDarkMode } = useDarkMode();
 
   const faqs = [
     {
@@ -43,7 +44,7 @@ const FAQ = () => {
         cartItemCount={cartItemCount}
         onSearchChange={setSearchQuery}
         darkMode={darkMode}
-        onToggleDarkMode={() => setDarkMode(!darkMode)}
+        onToggleDarkMode={toggleDarkMode}
       />
 
       <section className="py-16">

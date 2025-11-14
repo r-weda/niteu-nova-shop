@@ -153,13 +153,14 @@ export const Navigation = ({ cartItemCount, onSearchChange, darkMode, onToggleDa
           >
             <div className="container mx-auto px-4 py-4 space-y-2">
               {categories.map((category) => (
-                <button
+                <Link
                   key={category}
+                  to={`/products?category=${category.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}`}
                   className="block w-full text-left py-2 px-4 rounded-lg hover:bg-accent transition-smooth"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {category}
-                </button>
+                </Link>
               ))}
             </div>
           </motion.div>

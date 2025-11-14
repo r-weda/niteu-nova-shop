@@ -11,12 +11,13 @@ import { Trash2, Plus, Minus, ShoppingBag, ArrowLeft, Tag } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { formatPrice } from "@/lib/utils/format";
 import { useToast } from "@/hooks/use-toast";
+import { useDarkMode } from "@/hooks/use-dark-mode";
 
 const Cart = () => {
   const { cart, removeFromCart, updateQuantity, clearCart, cartTotal } = useCart();
   const [promoCode, setPromoCode] = useState("");
   const [appliedPromo, setAppliedPromo] = useState<{ code: string; discount: number } | null>(null);
-  const [darkMode, setDarkMode] = useState(false);
+  const { darkMode, toggleDarkMode } = useDarkMode();
   const navigate = useNavigate();
   const { toast } = useToast();
 
@@ -73,7 +74,7 @@ const Cart = () => {
         cartItemCount={cart.length}
         onSearchChange={() => {}}
         darkMode={darkMode}
-        onToggleDarkMode={() => setDarkMode(!darkMode)}
+        onToggleDarkMode={toggleDarkMode}
       />
 
       <div className="container mx-auto px-4 py-8">

@@ -10,6 +10,7 @@ import { useToast } from "@/hooks/use-toast";
 import { Navigation } from "@/components/Navigation";
 import { motion } from "framer-motion";
 import { Mail, Phone, ArrowLeft, Loader2 } from "lucide-react";
+import { useDarkMode } from "@/hooks/use-dark-mode";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -20,7 +21,7 @@ const Contact = () => {
     message: "",
   });
   const [loading, setLoading] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
+  const { darkMode, toggleDarkMode } = useDarkMode();
   const { toast } = useToast();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -61,7 +62,7 @@ const Contact = () => {
         cartItemCount={0}
         onSearchChange={() => {}}
         darkMode={darkMode}
-        onToggleDarkMode={() => setDarkMode(!darkMode)}
+        onToggleDarkMode={toggleDarkMode}
       />
 
       <div className="container mx-auto px-4 py-12">

@@ -9,13 +9,14 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { useCart } from "@/hooks/use-cart";
 import { formatPrice } from "@/lib/utils/format";
 import { useToast } from "@/hooks/use-toast";
+import { useDarkMode } from "@/hooks/use-dark-mode";
 
 const Checkout = () => {
   const navigate = useNavigate();
   const { cart, cartTotal } = useCart();
   const { toast } = useToast();
   const [searchQuery, setSearchQuery] = useState("");
-  const [darkMode, setDarkMode] = useState(false);
+  const { darkMode, toggleDarkMode } = useDarkMode();
   const [paymentMethod, setPaymentMethod] = useState("mpesa");
   const [isProcessing, setIsProcessing] = useState(false);
 
@@ -45,7 +46,7 @@ const Checkout = () => {
           cartItemCount={0}
           onSearchChange={setSearchQuery}
           darkMode={darkMode}
-          onToggleDarkMode={() => setDarkMode(!darkMode)}
+          onToggleDarkMode={toggleDarkMode}
         />
         <div className="container mx-auto px-4 py-16 text-center">
           <h1 className="text-3xl font-bold mb-4">Your cart is empty</h1>
@@ -62,7 +63,7 @@ const Checkout = () => {
         cartItemCount={cart.length}
         onSearchChange={setSearchQuery}
         darkMode={darkMode}
-        onToggleDarkMode={() => setDarkMode(!darkMode)}
+        onToggleDarkMode={toggleDarkMode}
       />
 
       <section className="py-12">
