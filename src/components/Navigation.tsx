@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation, useSearchParams } from "react-router-dom";
 import { ShoppingCart, Search, Menu, X, Moon, Sun, Heart, User, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -20,6 +20,9 @@ export const Navigation = ({ cartItemCount, onSearchChange, darkMode, onToggleDa
   const [searchQuery, setSearchQuery] = useState("");
   const { user, logout } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+  const [searchParams] = useSearchParams();
+  const currentCategory = searchParams.get("category");
 
   const handleSearch = (value: string) => {
     setSearchQuery(value);
@@ -116,15 +119,21 @@ export const Navigation = ({ cartItemCount, onSearchChange, darkMode, onToggleDa
 
         {/* Categories - Desktop */}
         <div className="hidden md:flex items-center justify-center space-x-6 pb-4 overflow-x-auto">
-          {categories.slice(0, 8).map((category) => (
-            <Link
-              key={category}
-              to={`/products?category=${category.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}`}
-              className="text-sm font-medium text-muted-foreground hover:text-primary transition-smooth whitespace-nowrap"
-            >
-              {category}
-            </Link>
-          ))}
+          {categories.slice(0, 8).map((category) => {
+            const categorySlug = category.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-');
+            const isActive = currentCategory === categorySlug;
+            return (
+              <Link
+                key={category}
+                to={`/products?category=${categorySlug}`}
+                className={`text-sm font-medium transition-smooth whitespace-nowrap ${
+                  isActive ? "text-primary font-semibold" : "text-muted-foreground hover:text-primary"
+                }`}
+              >
+                {category}
+              </Link>
+            );
+          })}
         </div>
 
         {/* Search Bar - Mobile */}
@@ -152,16 +161,22 @@ export const Navigation = ({ cartItemCount, onSearchChange, darkMode, onToggleDa
             className="md:hidden border-t border-border bg-card"
           >
             <div className="container mx-auto px-4 py-4 space-y-2">
-              {categories.map((category) => (
-                <Link
-                  key={category}
-                  to={`/products?category=${category.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}`}
-                  className="block w-full text-left py-2 px-4 rounded-lg hover:bg-accent transition-smooth"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {category}
-                </Link>
-              ))}
+              {categories.map((category) => {
+                const categorySlug = category.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-');
+                const isActive = currentCategory === categorySlug;
+                return (
+                  <Link
+                    key={category}
+                    to={`/products?category=${categorySlug}`}
+                    className={`block w-full text-left py-2 px-4 rounded-lg transition-smooth ${
+                      isActive ? "bg-accent text-primary font-semibold" : "hover:bg-accent"
+                    }`}
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {category}
+                  </Link>
+                );
+              })}
             </div>
           </motion.div>
         )}

@@ -28,6 +28,17 @@ const Products = () => {
   const [showFilters, setShowFilters] = useState(false);
 
   useEffect(() => {
+    if (categoryParam) {
+      const matchedCategory = categories.find(
+        c => c.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-') === categoryParam
+      );
+      setSelectedCategory(matchedCategory || "All");
+    } else {
+      setSelectedCategory("All");
+    }
+  }, [categoryParam]);
+
+  useEffect(() => {
     let filtered = products;
 
     if (filterParam === "best-sellers") {
