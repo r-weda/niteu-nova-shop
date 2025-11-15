@@ -8,6 +8,7 @@ import { Star, ShoppingCart, Heart, ArrowLeft, Truck, Shield, Clock } from "luci
 import { motion } from "framer-motion";
 import { useToast } from "@/hooks/use-toast";
 import { useDarkMode } from "@/hooks/use-dark-mode";
+import { formatPrice } from "@/lib/utils/format";
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -128,10 +129,10 @@ const ProductDetail = () => {
 
               {/* Price */}
               <div className="flex items-center gap-4 mb-8">
-                <span className="text-4xl font-bold text-primary">${product.price}</span>
+                <span className="text-4xl font-bold text-primary">{formatPrice(product.price)}</span>
                 {product.originalPrice && (
                   <span className="text-2xl text-muted-foreground line-through">
-                    ${product.originalPrice}
+                    {formatPrice(product.originalPrice)}
                   </span>
                 )}
               </div>
@@ -228,7 +229,7 @@ const ProductDetail = () => {
                     />
                     <div className="p-4">
                       <h3 className="font-semibold mb-2 line-clamp-2">{relatedProduct.name}</h3>
-                      <p className="text-lg font-bold text-primary">${relatedProduct.price}</p>
+                      <p className="text-lg font-bold text-primary">{formatPrice(relatedProduct.price)}</p>
                     </div>
                   </motion.div>
                 </Link>

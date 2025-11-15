@@ -1,3 +1,3 @@
 export const formatPrice = (price: number): string => {
-  return `KSh ${price.toLocaleString()}`;
+  return `KSH ${price.toLocaleString()}`;
 };
