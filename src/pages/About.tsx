@@ -38,7 +38,7 @@ const About = () => {
               </p>
               <p className="text-muted-foreground">
                 From electronics to fashion, home goods to beauty products, we carefully curate our inventory to
-                ensure every item meets our standards of quality and value. We're committed to excellent customer
+                ensure each item meets our standards of quality and value. We're committed to excellent customer
                 service and fast, reliable delivery across Kenya.
               </p>
             </CardContent>
